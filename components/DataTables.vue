@@ -17,7 +17,7 @@
       </b-col>
     </b-row>
 
-    <b-table striped hover show-empty :fields="fields" :filter="filter" :per-page="selected" :current-page="currentPage" :items="data">
+    <b-table striped responsive hover show-empty :fields="fields" :filter="filter" :per-page="selected" :current-page="currentPage" :items="data">
       <template #cell(status)="items">
         <span v-if="items.item.terisi / items.item.jumlah <= 0.25" class="badge badge-success">Longgar</span>
         <span v-else-if="items.item.terisi / items.item.jumlah <= 0.5" class="badge badge-warning">Agak Longgar</span>
