@@ -20,7 +20,7 @@
     "jquery": "3.6.0",
     "node-sass": "^5",
     "nuxt": "^2.15.7",
-    "sass-loader": "^10",
+    "sass-loader": "^12",
     "webpack": "^5.52.0"
   },
   "devDependencies": {
