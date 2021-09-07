@@ -1,5 +1,5 @@
 <template>
-  <div class="table-responsive">
+  <div :class="responsive == true ? 'table-responsive' : ''">
     <b-row>
       <b-col>
         <label for="filter">Tampilkan Per</label>
@@ -13,7 +13,7 @@
       </b-col>
     </b-row>
 
-    <b-table striped hover show-empty sticky-header class="elevation-1" :fields="fields" :filter="filter" :per-page="selected" :current-page="currentPage" :items="data">
+    <b-table striped hover show-empty :fields="fields" :filter="filter" :per-page="selected" :current-page="currentPage" :items="data">
       <template #cell(status)="data">
         <span class="badge badge-success" v-if="data.item.terisi / data.item.jumlah <= 0.25">Longgar</span>
         <span class="badge badge-warning" v-else-if="data.item.terisi / data.item.jumlah <= 0.5">Agak Longgar</span>
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  props: ["data"],
+  props: ["data", "responsive"],
   data: () => ({
     filter: "",
 

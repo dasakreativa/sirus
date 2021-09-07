@@ -13,13 +13,13 @@
             <b-nav-item to="/cek-vaksinasi">Data Vaksinasi</b-nav-item>
           </b-navbar-nav>
 
-          <b-button @click="$bvModal.show('modal-login')"><i class="fas fa-sign-in-alt mr-2"></i>Masuk</b-button>
+          <b-button @click="$bvModal.show('modal-login')" variant="primary"><i class="fas fa-sign-in-alt mr-2"></i>Masuk</b-button>
         </b-collapse>
       </b-container>
     </b-navbar>
 
-    <b-modal id="modal-login" title="BootstrapVue">
-      <p class="my-4">Hello from modal!</p>
+    <b-modal id="modal-login" title="Maaf!">
+      <p>Maaf, untuk situs hanya sampai sini saja. Kami akan mengembangkan situs ini lebih lanjut kedepannya.</p>
     </b-modal>
   </div>
 </template>

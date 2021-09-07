@@ -74,17 +74,6 @@
       </b-container>
     </section>
 
-    <!-- <section id="search-container">
-      <b-container class="py-5">
-        <b-row class="justify-content-center py-3">
-          <b-col md="12">
-            <h3 class="text-center">Data Keterisian Kamar Puskesmas</h3>
-            <DataTables :data="items" />
-          </b-col>
-        </b-row>
-      </b-container>
-    </section> -->
-
   </div>
 </template>
 
@@ -264,7 +253,7 @@ body {
   align-items: center;
   text-decoration: none;
   background: var(--light);
-  padding: .25rem .5rem;
+  padding: .5rem;
 
   @media screen and (max-width: 768px) {
     padding: .5rem;

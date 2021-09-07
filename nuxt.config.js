@@ -3,13 +3,24 @@ const webpack = require('webpack')
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  loadingIndicator: {
+    name: 'rotating-plane',
+    color: '#eb445a',
+    background: '#eee'
+  },
+  loading: {
+    failedColor: '#eb445a',
+    color: '#20c997',
+    height: '5px',
+    throttle: 0,
+  },
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Warga Sehat',
+    title: 'Sirus',
     meta: [{
         charset: 'utf-8'
       },
@@ -84,12 +95,10 @@ export default {
   content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
-
-  // Loading Bar
-  loading: {
-    color: '#F26363',
-    height: '5px'
+  build: {
+    babel: {
+      compact: true,
+    },
   },
 
   // Host
