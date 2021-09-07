@@ -18,6 +18,8 @@
       </section>
     </section>
 
+    <Footer />
+
   </div>
 </template>
 
@@ -32,6 +34,18 @@ export default {
         puskesmas: 'Puskesmas Sine',
         jumlah: 12,
         terisi: 12,
+      },
+      {
+        daerah: 'Ngawi',
+        puskesmas: 'RS Umum Widodo Ngawi',
+        jumlah: 210,
+        terisi: 120,
+      },
+      {
+        daerah: 'Ngawi',
+        puskesmas: 'RS Umum Daerah Dr. Soeroto Ngawi',
+        jumlah: 250,
+        terisi: 145,
       },
       {
         daerah: 'Ngrambe',
@@ -118,7 +132,7 @@ export default {
         terisi: 8,
       },
       {
-        daerah: 'Teguhan',
+        daerah: 'Paron',
         puskesmas: 'Puskesmas Teguhan',
         jumlah: 16,
         terisi: 15,
@@ -174,7 +188,7 @@ export default {
     ]
   }),
   head: {
-    title: 'Cek Ranap &mdash; Sistem Informasi Rumah Sakit',
+    title: 'Cek Ranap - Sistem Informasi Rumah Sakit',
   },
 }
 </script>

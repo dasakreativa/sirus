@@ -1,31 +1,35 @@
 <template>
   <div :class="responsive == true ? 'table-responsive' : ''">
-    <b-row>
-      <b-col>
-        <label for="filter">Tampilkan Per</label>
-        <b-form-select v-model="selected" :options="options" />
-      </b-col>
+    <b-row class="align-items-end">
       <b-col>
         <div class="form-group">
-          <label for="filter">Cari</label>
-          <input type="text" id="filter" placeholder="Cari sesuatu..." v-model="filter" class="form-control" />
+          <label for="filter">Tampilkan Per</label>
+          <b-form-select v-model="selected" :options="options" />
+        </div>
+      </b-col>
+      <b-col>
+        <div class="form-group d-inline floating">
+          <div class="form-floating m-0 pb-3">
+            <input id="filter" v-model="filter" type="text" placeholder="Cari sesuatu..." class="form-control" />
+            <label for="filter">Cari Data</label>
+          </div>
         </div>
       </b-col>
     </b-row>
 
     <b-table striped hover show-empty :fields="fields" :filter="filter" :per-page="selected" :current-page="currentPage" :items="data">
-      <template #cell(status)="data">
-        <span class="badge badge-success" v-if="data.item.terisi / data.item.jumlah <= 0.25">Longgar</span>
-        <span class="badge badge-warning" v-else-if="data.item.terisi / data.item.jumlah <= 0.5">Agak Longgar</span>
-        <span class="badge badge-danger" v-else-if="data.item.terisi / data.item.jumlah < 1">Agak Penuh</span>
-        <span class="badge badge-dark" v-else-if="data.item.terisi / data.item.jumlah == 1">Penuh / Kosong</span>
+      <template #cell(status)="items">
+        <span v-if="items.item.terisi / items.item.jumlah <= 0.25" class="badge badge-success">Longgar</span>
+        <span v-else-if="items.item.terisi / items.item.jumlah <= 0.5" class="badge badge-warning">Agak Longgar</span>
+        <span v-else-if="items.item.terisi / items.item.jumlah < 1" class="badge badge-danger">Agak Penuh</span>
+        <span v-else-if="items.item.terisi / items.item.jumlah == 1" class="badge badge-dark">Penuh / Kosong</span>
       </template>
     </b-table>
 
     <b-row class="mt-3">
       <b-col>&nbsp;</b-col>
       <b-col>
-        <b-pagination class="justify-content-end" v-model="currentPage" :total-rows="rows" :per-page="selected" />
+        <b-pagination v-model="currentPage" class="justify-content-end" :total-rows="rows" :per-page="selected" />
       </b-col>
     </b-row>
   </div>
@@ -81,6 +85,8 @@ export default {
     rows() {
       return this.data.length;
     }
-  }
+  },
+  methods: {
+  },
 }
 </script>
