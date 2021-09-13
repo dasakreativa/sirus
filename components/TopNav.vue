@@ -8,12 +8,14 @@
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item to="/cek-oksigen">Stok Oksigen</b-nav-item>
-            <b-nav-item to="/cek-ranap">Kamar Ranap</b-nav-item>
-            <b-nav-item to="/cek-vaksinasi">Data Vaksinasi</b-nav-item>
+            <b-nav-item :class="$route.path == '/' ? 'active' : ''" to="/"><i class="fas fa-home fa-fw mr-2"></i>Beranda</b-nav-item>
+            <b-nav-item v-if="this.$route.path == '/'" @click="scrollTo('services')">Layanan</b-nav-item>
+            <b-nav-item v-else to="/#services">Layanan</b-nav-item>
+            <b-nav-item :class="$route.path == '/cek-oksigen' ? 'active' : ''" to="/cek-oksigen">Stok Oksigen</b-nav-item>
+            <b-nav-item :class="$route.path == '/cek-ranap' ? 'active' : ''" to="/cek-ranap">Kamar Ranap</b-nav-item>
           </b-navbar-nav>
 
-          <b-button variant="primary" @click="$bvModal.show('modal-login')"><i class="fas fa-sign-in-alt mr-2"></i>Masuk</b-button>
+          <b-button variant="primary" :block="WindowWidth <= 600 ? true : false" @click="$bvModal.show('modal-login')"><i class="fas fa-sign-in-alt mr-2"></i>Masuk</b-button>
         </b-collapse>
       </b-container>
     </b-navbar>
@@ -37,6 +39,23 @@ export default {
       navbarType: 'light',
       navbarBg: 'transparent',
       navbarFx: '',
+
+      WindowWidth: window.innerWidth,
+    }
+  },
+  beforeMount () {
+    window.addEventListener("resize", this.changeWidth);
+  },
+  beforeDestroy () {
+    window.removeEventListener("resize", this.changeWidth);
+  },
+  methods: {
+    scrollTo(el) {
+      const element = document.getElementById(el);
+      element.scrollIntoView({behavior: "smooth", block: "end"});
+    },
+    changeWidth(e) {
+      this.WindowWidth = window.innerWidth;
     }
   },
   mounted() {

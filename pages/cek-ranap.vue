@@ -4,13 +4,22 @@
       <TopNav />
     </header>
 
+    <section id="breadcrumbs" class="py-3 bg-light">
+      <b-container>
+        <b-breadcrumb class="bg-light m-0">
+          <b-breadcrumb-item to="/">Beranda</b-breadcrumb-item>
+          <b-breadcrumb-item active>Cek Keterisian Kamar Rumah Sakit/Puskesmas</b-breadcrumb-item>
+        </b-breadcrumb>
+      </b-container>
+    </section>
+
     <section id="ranap">
 
       <section id="search-container">
         <b-container class="py-5">
           <b-row class="justify-content-center py-3">
             <b-col md="12">
-              <h3 class="text-center">Data Keterisian Kamar Puskesmas</h3>
+              <h3 class="text-center mb-3">Data Keterisian Kamar Rumah Sakit/Puskesmas</h3>
               <DataTables :data="items" />
             </b-col>
           </b-row>
@@ -39,6 +48,12 @@ export default {
         daerah: 'Ngawi',
         puskesmas: 'RS Umum Widodo Ngawi',
         jumlah: 210,
+        terisi: 120,
+      },
+      {
+        daerah: 'Ngawi',
+        puskesmas: 'RS Islam At-Tin Husada',
+        jumlah: 270,
         terisi: 120,
       },
       {
@@ -192,3 +207,7 @@ export default {
   },
 }
 </script>
+
+<style>
+body{
+}</style>

@@ -161,6 +161,7 @@
   }
 }
 
+// Form Floating General Input
 .form-floating {
   position: relative;
   margin: 1rem 0;
@@ -174,7 +175,44 @@
     transition: all .3s;
   }
 
-  >.form-control, .custom-control, .custom-select {
+  >.form-control {
+    &.is-invalid ~ label {
+      color: $danger;
+    }
+    &.is-valid ~ label {
+      color: $success;
+    }
+
+    &::placeholder {
+      opacity: 0;
+      transition: all .3s;
+    }
+
+    &:focus::placeholder {
+      opacity: 1;
+      transition: all .3s;
+    }
+
+    &:not(:placeholder-shown) ~ label,
+    &:focus + label {
+      transition: all .3s;
+      margin-top: -3rem;
+      margin-left: .5rem;
+      font-size: .85rem;
+      background-color: $white;
+      padding: 0 .25rem;
+    }
+    &:focus:not(.is-invalid):not(.is-valid) + label {
+      color: $primary;
+    }
+  }
+}
+
+.form-floating-alt {
+  .form-control {
+    height: 3.25rem;
+    padding: 1.5rem .75rem .35rem .75rem;
+
     &.is-invalid ~ label {
       color: $danger;
     }
@@ -206,19 +244,109 @@
     }
   }
 
-  &-alt {
-    .form-control {
-      height: 3.25rem;
-      padding: 1.5rem .75rem .35rem .75rem;
+  label {
+    margin-top: -2.35rem;
+    position: absolute;
+    margin-left: .8rem;
+    margin-bottom: 0;
+    color: $input-placeholder-color;
+    transition: all .3s;
+  }
+
+  &:not(:placeholder-shown) ~ label,
+  &:focus + label {
+    margin-top: -3rem;
+    transition: all .3s;
+    margin-left: .5rem;
+    font-size: .85rem;
+    background-color: $white;
+    padding: 0 .25rem;
+  }
+  &:focus:not(.is-invalid):not(.is-valid) + label {
+    color: $primary;
+  }
+}
+
+// Form Floating General Input
+.form-floating-select {
+  position: relative;
+  margin: 1rem 0;
+
+  > label {
+    position: absolute;
+  }
+
+  >select.custom-select {
+    &.is-invalid ~ label {
+      color: $danger;
+    }
+    &.is-valid ~ label {
+      color: $success;
     }
 
-    label {
-      margin-top: -2.35rem;
+    &::placeholder {
+      opacity: 0;
+      transition: all .3s;
+    }
+
+    &:focus::placeholder {
+      opacity: 1;
+      transition: all .3s;
     }
 
     &:not(:placeholder-shown) ~ label,
     &:focus + label {
-      margin-top: -3rem;
+      transition: all .3s;
+      top: -.75rem;
+      left: .5rem;
+      font-size: .85rem;
+      background-color: $white;
+      padding: 0 .25rem;
+    }
+    &:focus:not(.is-invalid):not(.is-valid) + label {
+      color: $primary;
+    }
+  }
+}
+
+
+.form-floating-select-alt {
+  label {
+    position: absolute;
+  }
+
+  select.custom-select {
+    height: 3.25rem;
+    padding: 1.5rem .75rem .35rem .75rem;
+
+    &.is-invalid ~ label {
+      color: $danger;
+    }
+    &.is-valid ~ label {
+      color: $success;
+    }
+
+    &::placeholder {
+      opacity: 0;
+      transition: all .3s;
+    }
+
+    &:focus::placeholder {
+      opacity: 1;
+      transition: all .3s;
+    }
+
+    &:not(:placeholder-shown) ~ label,
+    &:focus + label {
+      transition: all .3s;
+      top: .25rem;
+      left: 1.5rem;
+      font-size: .85rem;
+      background-color: $white;
+      padding: 0 .25rem;
+    }
+    &:focus:not(.is-invalid):not(.is-valid) + label {
+      color: $primary;
     }
   }
 }

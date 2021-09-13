@@ -88,7 +88,7 @@ label.input-custom-card {
     &:checked {
       ~.input-wrap {
         border-color: $primary;
-        background: $light;
+        background: rgba(0,0,0,.075);
 
         .input-header {
           color: $primary;

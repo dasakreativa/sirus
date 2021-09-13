@@ -49,6 +49,9 @@ export default {
   css: [
     '@/assets/scss/main.scss'
   ],
+  generate: {
+    fallback: "404.html"
+  },
 
   module: {
     rules: [{
@@ -103,6 +106,6 @@ export default {
 
   // Host
   server: {
-    host: '192.168.0.165',
+    host: '192.168.43.44',
   }
 }
